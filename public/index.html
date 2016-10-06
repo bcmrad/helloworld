@@ -1,0 +1,47 @@
+<!--No UI elements are here. Loading modules-->
+
+<!DOCTYPE>  
+
+<html ng-app="client">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link href="stylesheets/style.css" rel="stylesheet">
+
+  <base href="/">
+  <script src="libs/jquery/dist/jquery.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="libs/angular/angular.js"></script>
+  <script src="libs/angular-route/angular-route.min.js"></script>
+
+
+  <script src="app.js"></script>
+  <script src="components/home/homeController.js"></script>
+  <script src="components/home/HomeService.js"></script>
+  <script src="components/login/loginController.js"></script>
+  <script src="components/login/loginService.js"></script>
+  <script src="components/signup/signupController.js"></script>
+  <script src="components/shared/headerController.js"></script>
+  <script src="components/shared/noteService.js"></script>
+
+  <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+  <script src="libs/angular-google-maps/dist/angular-google-maps.min.js"></script>
+  <script src="libs/lodash/lodash.min.js"></script>
+
+
+</head>
+<body>
+<div ng-include="'components/shared/header.html'"></div>
+  <div ng-view></div>
+
+</body>
+
+</html>

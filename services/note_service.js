@@ -6,9 +6,9 @@ exports.create = function(req, res){
   var newNote = new Note();
   newNote.title = req.body.title;
   newNote.body = req.body.body;
-  newNote.creatorID = req.body.creatorID;
-  newNote.lat = req.body.lat;
-  newNote.lon = req.body.lon;
+  newNote.creatorID = req.user._id;
+  newNote.latitude = req.body.latitude;
+  newNote.longitude = req.body.longitude;
   //if(req.body.location) {
   //  newNote.location = req.body.location;
   //}
@@ -20,7 +20,7 @@ exports.create = function(req, res){
       res.json(500, {message: "Could not create note. Error: " + err});
     }
   });
-}
+};
 
 exports.getNote = function(req, res){
   var id = req.params.id;      //This comes from url parameter
@@ -33,7 +33,7 @@ exports.getNote = function(req, res){
       res.json(404, {message: "Note not found."});
     }
   });
-}
+};
 
 exports.delete = function(req, res){
   var id = reg.params.id;
@@ -47,7 +47,7 @@ exports.delete = function(req, res){
       res.json(403, {message: "Could not delete note. " + err});
     }
   });
-}
+};
 
 exports.update = function(req, res){
   var id = req.body.id;             //This comes from json body
@@ -58,9 +58,10 @@ exports.update = function(req, res){
       doc.date_created = req.body.date_created || doc.date_created;
       doc.votes = req.body.votes || doc.votes;
       doc.creatorID = req.body.creatorID || doc.creatorID;
-      doc.lat = req.body.lat || doc.lat;
-      doc.lon = req.body.lon || doc.lon;
+      doc.latitude = req.body.latitude || doc.latitude;
+      doc.longitude = req.body.longitude || doc.longitude;
       doc.location = req.body.location || doc.location;
+      doc.visibility = req.body.visibility || doc.visibility;
       doc.save(function(err){
         if(!err){
           res.json(200, doc);
@@ -74,7 +75,7 @@ exports.update = function(req, res){
       res.json(500, {message: 'Could not update note. ' + err});
     }
   });
-}
+};
 
 exports.vote = function(req, res){
   var id = req.body.id;             //This comes from json body
@@ -94,7 +95,7 @@ exports.vote = function(req, res){
       res.json(500, {message: 'Could not update note. ' + err});
     }
   });
-}
+};
 
 exports.index = function(req, res) {
   console.log("get notes");
@@ -105,4 +106,4 @@ exports.index = function(req, res) {
       res.json(500, { message: err });
     }
   });
-}
+};

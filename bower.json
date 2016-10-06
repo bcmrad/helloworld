@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "dependencies": {
     "angular": "latest",
+    "angular-google-maps": "~2.1.6",
     "angular-route": "latest",
     "animate.css": "latest",
     "bootstrap": "~3.3.5",
-    "font-awesome": "latest"
+    "font-awesome": "latest",
+    "lodash": "~3.10.1"
   }
 }

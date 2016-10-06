@@ -6,14 +6,14 @@ var userSchema = new Schema({
   lastName : { type: String, required: true, trim: true },
   ownNotes : { type: [Schema.Types.ObjectId], default: [] },       //changes after
   favouriteNotes : { type: [Schema.Types.ObjectId], default: [] }, //changes after
-  date_created : { type: Date, required: true, default: Date.now },                //use default
-  userName : { type: String, required: true, trim: true, index: { unique: true } },
-  passWord : { type: String, required: true, trim: true },
+  date_created : { type: Date, default: Date.now },                //use default
+  displayName : { type: String, required: true, trim: true, default: ""},
+  password : { type: String, required: true, trim: true },
   friends : { type: [Schema.Types.ObjectId], default: [] },        //changes after
-  email : { type: String, required: true, trim: true },
-  acctStatus : { type: String, required: true, trim: true, default: "active" },    //changes after
-  secStatus: { type: String, required: true, trim: true, default: "user" }         //possibly elevated
-  // settings : { type: String, required: true, trim: true },
+  email : { type: String, required: true, trim: true, index: { unique: true } },
+  acctStatus : { type: String, trim: true, default: "active" },    //changes after
+  secStatus: { type: String, trim: true, default: "user" },         //possibly elevated
+  settings : { type: String, trim: true, default: "default" }
 });
 var user = mongoose.model('user', userSchema);
 

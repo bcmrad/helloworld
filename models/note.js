@@ -7,9 +7,10 @@ var noteSchema = new Schema({
   date_created : { type: Date, default: Date.now },
   votes : {type: Number, default: 0 },
   creatorID : {type: Schema.Types.ObjectId, required: true},
-  lat : {type: Number, required: true},
-  lon : {type: Number, required: true},
-  location : {type: Schema.Types.ObjectId}
+  latitude : {type: Number, required: true},
+  longitude : {type: Number, required: true},
+  location : {type: Schema.Types.ObjectId},
+  visibility : {type: Number, default: 0}
 });
 
 var note = mongoose.model('note', noteSchema);
